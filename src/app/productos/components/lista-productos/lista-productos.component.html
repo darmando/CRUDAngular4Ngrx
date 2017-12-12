@@ -1,0 +1,25 @@
+     <table class="table" *ngIf="productos; else loading" >
+        <thead>
+          <tr>
+            <th>ID PRODUCTO</th>
+            <th>NOMBRE</th>
+            <th>PRECIO</th>
+            <th>EDITAR</th>
+            <th>ELIMINAR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producto of productos; trackBy: contactsTrackByFn">
+            <td>{{producto.cat_prec_id}}</td>
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.precio}}</td>
+            <td (click)="editContact(producto)" align="center"> <i class="fa fa-pencil" aria-hidden="true"></i></td>
+            <td (click)="deleteContact(producto)" align="center"><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <ng-template #loading>
+          <span>loading contacts...</span>
+      </ng-template>
+        
